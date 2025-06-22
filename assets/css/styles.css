@@ -1,0 +1,218 @@
+:root {
+  --primary: #6c5ce7;
+  --primary-dark: #5649c0;
+  --secondary: #00cec9;
+  --error: #ff7675;
+  --success: #55efc4;
+  --text: #2d3436;
+  --light: #f5f6fa;
+  --dark: #1e272e;
+  --glass: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: linear-gradient(-45deg, #6c5ce7, #00cec9, #0984e3, #6c5ce7);
+  background-size: 400% 400%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-container {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-header h1 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.login-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 45px 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+}
+
+.form-group .error-message {
+  color: var(--error);
+  font-size: 0.75rem;
+  margin-top: 8px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-group.error input {
+  background: rgba(255, 118, 117, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 118, 117, 0.3);
+}
+
+.form-group.error .error-message {
+  display: block;
+  animation: shake 0.4s ease;
+}
+
+.form-group.success input {
+  background: rgba(85, 239, 196, 0.1);
+  box-shadow: 0 0 0 3px rgba(85, 239, 196, 0.3);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.password-toggle::after {
+  content: "👁️";
+  font-size: 1.2rem;
+}
+
+.password-toggle.show-password::after {
+  content: "🔒";
+}
+
+.login-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px;
+  }
+
+  .login-header h1 {
+    font-size: 1.8rem;
+  }
+}
